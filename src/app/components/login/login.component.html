@@ -11,15 +11,15 @@
       
           <!-- Login Form -->
           <form style="margin-top: 10px;">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Correo"  autocomplete="off">
-            <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" >
-            <input type="button" class="fadeIn fourth" value="Log In" >
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Correo"  autocomplete="off" [(ngModel)]="UsuarioLog.Username" [ngModelOptions]="{standalone: true}">
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="UsuarioLog.Password" [ngModelOptions]="{standalone: true}">
+            <input type="button" class="fadeIn fourth" value="Log In" (click)="LogIn()">
             <!--TODO Verificar que submit no borre informacion al actualizar-->
           </form>
       
           <!-- Remind Passowrd -->
-          <div id="formFooter">
-            <div class="underlineHover" >Registrarse</div>
+          <div id="formFooter" >
+            <div class="underlineHover" (click)="registrarse()">Registrarse</div>
           </div>
       
         </div>

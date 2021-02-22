@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="container" style="margin-top: 10%;">
+        <form>
+            <label class="text-white" style="font-size: 25px;">Coach</label>
+            <input class="form-control form-control-lg" type="text" disabled style="width: 40%;" [(ngModel)]="AsignacionNueva.UsernameCoach" name="Coach">
+            <label class="text-white" style="font-size: 25px;margin-top: 5%; width: 40%;">Atleta</label>
+            <select class="form-control form-control-lg" style="width: 40%;" [(ngModel)]="AsignacionNueva.UsernameAtleta" name="Asignacion">
+                <option *ngFor="let Atleta of ListadoAtletas" value="{{Atleta.UsernameAtleta}}">{{Atleta.UsernameAtleta}}</option>
+            </select>
+            <button type="button" class="btn btn-danger" style="margin-top: 20px;" (click)="Insertar()">Asociar Atleta</button>
+        </form>
+    </div>
+    <div class="container" style="margin-top: 25px;">
+        <!--Tabla de atletas-->
+        <table class="table table-sm table-dark">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Atleta</th>
+                <th scope="col">Live</th>
+                <th scope="col">Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let Atleta of TablaAtletasAsignados;index as i;index as j">
+                <th scope="row">{{i+1}}</th>
+                <td>{{Atleta.UsernameAtleta}}</td>
+                <td><button (click)="Navegar(Atleta.UsernameAtleta)">LIVE</button></td>
+                <td>
+                  <select (change)="NavegarFecha(Atleta.UsernameAtleta)" [(ngModel)]="SelectOption" id="USR{{Atleta.UsernameAtleta}}">
+                    <option disabled selected value="N">Fechas</option>
+                    <!--<option *ngFor="let ArrFechas of ListaFechas[j]" value="{{ArrFechas}}">{{ArrFechas}}</option>-->
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

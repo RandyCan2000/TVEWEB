@@ -1,41 +1,63 @@
-<div class="container">
-    <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
-        <div class="wrapper wrapper--w780">
-            <div class="card card-3">
-                <div class="card-heading"></div>
-                <div class="card-body">
-                    <h2 class="title">Registration Info</h2>
-                    <form method="POST">
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Name" name="name">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
-                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                        </div>
-                        <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="gender">
-                                    <option disabled="disabled" selected="selected">Gender</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                                <div class="select-dropdown"></div>
+<div class="container" style="margin-top: 3%;">
+    <div class="container">
+        <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+            <div class="wrapper wrapper--w780">
+                <div class="card card-3">
+                    <div class="card-heading"></div>
+                    <div class="card-body">
+                        <h2 class="title">{{Title}}</h2>
+                        <form>
+                            <div class="input-group">
+                                <input class="input--style-3" type="text" placeholder="Nombre" autocomplete="off" [(ngModel)]="Usuario.Nombre" [ngModelOptions]="{standalone: true}">
                             </div>
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="email" placeholder="Email" name="email">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Phone" name="phone">
-                        </div>
-                        <div class="p-t-10">
-                            <button class="btn btn--pill btn--green" type="submit">Submit</button>
-                        </div>
-                    </form>
+                            <div class="input-group">
+                                <input class="input--style-3" type="text" placeholder="Apellido" autocomplete="off" [(ngModel)]="Usuario.Apellido" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-3" type="number" placeholder="Edad" autocomplete="off" min="0" [(ngModel)]="Usuario.Edad" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="input-group" style="width: 100%;">
+                                <div class="rs-select2 js-select-simple select--no-search" style="width: 100%;">
+                                    <select [(ngModel)]="Usuario.Genero" [ngModelOptions]="{standalone: true}" name="gender" class="form-select" style="background-color: rgba(0,0,0,0.6);color: white;width: 100%;">
+                                        <option value="N" disabled="disabled" selected="selected" >Genero</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Femenino</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-3" type="number" placeholder="Peso" autocomplete="off" min="0" [(ngModel)]="Usuario.Peso" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-3" type="number" placeholder="Estatura" autocomplete="off" min="0" [(ngModel)]="Usuario.Estatura" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-3" type="text" placeholder="Nombre Usuario" autocomplete="off" [(ngModel)]="Usuario.Username" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-3" type="password" placeholder="Contraseña" autocomplete="off" [(ngModel)]="Usuario.Password" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div class="input-group" style="width: 100%;">
+                                <div class="rs-select2 js-select-simple select--no-search" style="width: 100%;">
+                                    <select [(ngModel)]="Usuario.Rol" [ngModelOptions]="{standalone: true}" name="gender" class="form-select" style="background-color: rgba(0,0,0,0.6);color: white; width: 100%;">
+                                        <option value="N" disabled="disabled" selected="selected">ROL</option>
+                                        <option value="C">Coach</option>
+                                        <option value="A">Atleta</option>
+                                    </select>
+                                    <div class="select-dropdown"></div>
+                                </div>
+                            </div>
+                            <div class="p-t-10" id="Btn">
+                                <button class="btn btn--pill btn--green" type="button" style="background-color: rgba(86, 72, 90, 0.726);" (click)="Registrar()">Registrarse</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!--
+Rol
+-->

@@ -1,0 +1,29 @@
+<div class="container ContTab">
+    <ul class="nav nav-pills TAB">
+        <span><li class="Button active" id="FIRST" (click)="RitmoCardiaco(0)" style="border-bottom-left-radius: 25px;border-top-left-radius: 25px;"><a data-toggle="pill">Ritmo cardíaco</a></li></span>
+        <span><li class="Button" (click)="TemperaturaCorporal(1)" ><a data-toggle="pill">Temperatura corporal</a></li></span>
+        <span><li class="Button" id="LAST" (click)="ExigenoEnSangre(2)" style="border-bottom-right-radius: 25px;border-top-right-radius: 25px;"><a data-toggle="pill">Oxígeno en la sangre</a></li></span>
+    </ul>
+</div>
+<div class="container">
+    <app-graficas #Grafica  [Datos]="datosY"
+                            [Labels]="LabelsX"></app-graficas>
+    <div class="container">
+        <div class="RitmoCardiaco" style="visibility: visible;">
+            <h2 style="color: white;">Ritmo Cardiaco Promedio</h2>
+            <h1 style="color: white;">{{RitmoCardiacoPromedio}}</h1>
+        </div>
+        <div class="Oxigeno" style="visibility: hidden;">
+            <h2 style="color: white;">Oxigeno en Sangre Promedio</h2>
+            <h1 style="color: white;">{{OxigenoPromedio}}</h1>
+        </div>
+        <div class="Temperatura" style="visibility: hidden;">
+            <h2 style="color: white;">Temperatura Promedio</h2>
+            <h1 style="color: white;">{{TemperaturaValue.Promedio}}</h1>
+            <h2 style="color: white;">Temperatura Maxima</h2>
+            <h1 style="color: white;">{{TemperaturaValue.Maxima}}</h1>
+            <h2 style="color: white;">Temperatura Minima</h2>
+            <h1 style="color: white;">{{TemperaturaValue.Minima}}</h1>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+#FIRST{
+    border-left: 2px solid #2f4f4f;
+}
+#LAST{
+    border-right: 2px solid #2f4f4f;
+}
+.ContTab{
+    margin-left: 60%;
+}
+.Button{
+    color: white;
+    border-top: 2px solid #2f4f4f;
+    border-bottom: 2px solid #2f4f4f;
+    padding: 5px;
+    border-right: 1px solid #2f4f4f;
+}
+span:hover{
+    cursor: pointer;
+    margin-top: -3px;
+}
+.TAB{
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+.active{
+    background-color:#2f4f4f;
+    padding-bottom: 3px;
+    margin-top: -3px;
+}
