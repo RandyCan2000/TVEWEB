@@ -1,20 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(91, 66, 110, 0.445);">
-    <a class="navbar-brand text-white">TVE</a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link text-white" [routerLink]="['Login']">Login<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="['Historia']">Historial</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="['Coach']">Coach</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="['Graficas/Live']">Graficas Live</a>
-        </li>
-      </ul>
+<nav class="navbar " style="background-color: rgba(91, 66, 110, 0.445);">
+  <!-- Container wrapper -->
+  <div class="topnav" id="myTopnav" >
+    <div class="container">
+      <a class="text-white" [routerLink]="['Login']" style="padding: 10px;font-size: 15px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Login</a>
+      <a class="text-white" (click)="informacion()" style="padding: 10px;font-size: 15px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">informacion</a>
+      <a class="text-white" [routerLink]="['Historia']" style="padding: 10px;font-size: 15px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Historial</a>
+      <a class="text-white" [routerLink]="['Coach']" style="padding: 10px;font-size: 15px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Coach</a>
+      <a class="text-white" [routerLink]="['Graficas/Live']" style="padding: 10px;font-size: 15px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Graficas Live</a>
+      <a class="text-white" (click)="LogOut()" style="padding: 10px;font-size: 15px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cerar Sesion</a>
     </div>
-    <a class="navbar-brand text-white CSESION" (click)="LogOut()" >Cerrar Sesion</a>
-  </nav>
+</div>
+  <!-- Container wrapper -->
+</nav>
+

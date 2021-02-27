@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/Model/User';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,6 +18,11 @@ export class NavBarComponent implements OnInit {
   public LogOut(){
     sessionStorage.clear()
     this.route.navigate(["Login"])
+  }
+
+  public informacion(){
+    let usra:User=JSON.parse(sessionStorage.getItem("UsrLog"))
+    this.route.navigate(["Informacion","view",usra.Username])
   }
 
 }

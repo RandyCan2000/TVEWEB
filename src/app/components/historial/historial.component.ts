@@ -95,5 +95,6 @@ export class HistorialComponent implements OnInit {
     this.route.navigate(["Graficas","Day",Fecha])
   }
 
+  
 
 }
