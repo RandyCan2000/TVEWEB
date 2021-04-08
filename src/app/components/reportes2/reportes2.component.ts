@@ -112,6 +112,10 @@ export class Reportes2Component implements OnInit {
       },500);
     }
   }
+  
+  ngOnDestroy():void{
+    sessionStorage.removeItem('USER_VIEW')
+  } 
 
   public Seleccionar(btn:number){
     let Boton = document.getElementsByClassName("Button")[btn]
@@ -183,6 +187,24 @@ export class Reportes2Component implements OnInit {
     let div3= document.getElementsByClassName("Temperatura")[0] as HTMLDivElement
     div3.style.visibility="hidden"
     this.OxigenoPromedio=Number(this.Promedio(this.datosY))
+  }
+
+  public Velocidad(btn:number){
+    this.Graph.lineChartData[0].label="Velocidad"
+    this.datosY=[]
+    this.LabelsX=[]
+    this.Seleccionar(btn)
+    //for
+    this.BotonPresionado="Velocidad"
+  }
+
+  public Distancia(btn:number){
+    this.Graph.lineChartData[0].label="Distancia"
+    this.datosY=[]
+    this.LabelsX=[]
+    this.Seleccionar(btn)
+    //for
+    this.BotonPresionado="Distancia"
   }
 
   public Promedio(Listado:any[]):Number{

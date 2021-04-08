@@ -20,7 +20,7 @@ export class GraficasComponent implements OnInit{
   }
 
   public lineChartData: ChartDataSets[] = [
-    { data: [], label: '' }
+    { data: [], label: ''}
   ];
   public lineChartLabels: Label[] = [];
  

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Model/User';
 
@@ -7,12 +7,30 @@ import { User } from 'src/app/Model/User';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy {
 
-  constructor(private route:Router) { }
+  
+  @ViewChild("HORA") Hora: ElementRef;
+  public Interval:any
+
+  constructor(private route:Router,private renderer: Renderer2) {
+  }
+
+  
 
   ngOnInit(): void {
     console.log("NavBar");
+
+    this.Interval=setInterval(()=>{
+      let hoy = new Date()
+      let texto=String(hoy.getHours())+':'+String(hoy.getMinutes())+':'+String(hoy.getSeconds())
+      this.renderer.setProperty(this.Hora.nativeElement,'innerHTML',texto)
+    },1000)
+  }
+
+  ngOnDestroy():void{
+    clearInterval(this.Interval)
+    console.log("adios navbar");
   }
 
   public LogOut(){

@@ -145,11 +145,11 @@ export class CoachTableComponent implements OnInit {
   };
 
   public Navegar(name:string){
-    this.route.navigate(["Historia","Coach"])
+    this.route.navigate(["Graficas","Live"])
     sessionStorage.setItem("USER_VIEW",name)
   }
   public NavegarFecha(name:string){
-    this.route.navigate(["Historia","Coach","Day",this.SelectOption])
+    this.route.navigate(["Graficas","Day",this.SelectOption])
     sessionStorage.setItem("USER_VIEW",name)
   }
 

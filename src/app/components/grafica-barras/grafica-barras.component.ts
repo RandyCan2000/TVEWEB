@@ -27,16 +27,16 @@ export class GraficaBarrasComponent implements OnInit {
 
   public chartColors: Array<any> = [
     { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
+      backgroundColor: 'rgba(177, 245, 168, 0.81)',
+      borderColor: 'rgba(177, 245, 168, 0.81)',
       pointBackgroundColor: 'rgba(148,159,177,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     },
     { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
+      backgroundColor: 'rgba(158, 255, 231, 0.81)',
+      borderColor: 'rgba(158, 255, 231, 0.81)',
       pointBackgroundColor: 'rgba(77,83,96,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
@@ -48,12 +48,29 @@ export class GraficaBarrasComponent implements OnInit {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }];
+    },{ // yellow
+      backgroundColor: 'rgba(255, 250, 92, 0.81)',
+      borderColor: 'rgba(255, 250, 92, 0.81)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },{ // purple
+      backgroundColor: 'rgba(152, 92, 255, 0.81)',
+      borderColor: 'rgba(152, 92, 255, 0.81)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+  ];
 
   public barChartData: ChartDataSets[] = [
     { data: [], label: 'Ritmo Cardiaco' },
     { data: [], label: 'Oxigeno' },
-    { data: [], label: 'Temperatura' }
+    { data: [], label: 'Temperatura' },
+    { data: [], label: 'Velocidad' },
+    { data: [], label: 'Distancia' }
   ];
 
   constructor() { }

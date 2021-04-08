@@ -1,35 +1,7 @@
-<div class="container" style="position: relative;">
-    <div class="container" style="position: absolute;">
-        <h1>HISTORIAL</h1>
-    </div>
-    <app-grafica-barras #GraficoBarras style="position: absolute;width: 100%;margin-top: 10%;margin-left:-20%; min-width: 80%;min-height: 50%;"></app-grafica-barras>
-
-    <div class="containe" style="position: absolute;margin-top: 100%;margin-left: -10%;max-width: 50%;" >
-        <div style="text-align: center;">
-            
-            <div class="container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Fecha</th>
-                            <th>View</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let fecha of Fechas;index as i">
-                            <td>{{i+1}}</td>
-                            <td>{{fecha}}</td>
-                            <td><a class="btn btn-success"><span class="glyphicon glyphicon-eye-open" (click)="VerHistoria(fecha)"></span></a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<div class="container" style="position: absolute;margin-left: 80px;">
+        <h1 style="position: relative;">HISTORIAL</h1>
+        <app-grafica-barras #GraficoBarras style="position: relative;max-width: 800px;"></app-grafica-barras>
+        <div class="container" style="position: relative;top: 150px;">
+            <app-tabla #Tabla style="position: absolute;"></app-tabla>
         </div>
-    </div>
 </div>
-<!--
-    
-
-    
--->

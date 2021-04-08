@@ -5,6 +5,7 @@ import { User } from '../Model/User';
 import { Mediciones } from '../Model/Mediciones';
 import { Coach_Atleta } from '../Model/Coach_Atleta';
 import { Dates_ } from '../Model/Dates_';
+import { TestUser } from '../Model/TestUsers';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +32,10 @@ export class ServiciosService {
     return this.http.get<Mediciones[]>(this.Ruta+`/get/Mediciones/${UsrName}/${Fecha}`)
   }
 
+  public GetListadoMedicionesRep(UsrName:string,Fecha:String,Repeticion:Number):Observable<Mediciones[]>{
+    return this.http.get<Mediciones[]>(this.Ruta+`/Get/All/Registros/${Fecha}/${UsrName}/${Repeticion}`)
+  }
+
   public GetAllAtletas():Observable<Coach_Atleta[]>{
     return this.http.get<Coach_Atleta[]>(this.Ruta+`/Get/All/Atletas`)
   }
@@ -47,4 +52,11 @@ export class ServiciosService {
     return this.http.get<Dates_>(this.Ruta+`/Ordenar/Fecha/Inicio/Sesion`)
   }
 
+  public GetTestStatusUser(User:String):Observable<TestUser[]>{
+    return this.http.get<TestUser[]>(this.Ruta+`/Get/All/Registros/${User}`)
+  }
+
+  public GetTestStatusUserforStatusEspecific(User:String,Status:String):Observable<TestUser[]>{
+    return this.http.get<TestUser[]>(this.Ruta+`/Get/All/Registros/Approved/test/${User}/${Status}`)
+  }
 }

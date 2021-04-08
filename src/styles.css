@@ -7,3 +7,5 @@
     background-size: cover;
     background-color: rgba(17, 17, 17, 0.781);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

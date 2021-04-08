@@ -1,7 +1,10 @@
 export class Mediciones{
-    Fecha: String
-	PulsoOxigeno: Number
-	RitmoCardiaco: Number
-	Temperatura: Number
-	Username: String
+	Fecha?: String
+	Periodo?: Number
+	Velocidad?: Number
+    Distancia?: Number
+	PulsoOxigeno?: Number
+	RitmoCardiaco?: Number
+	Temperatura?: Number
+	Username?: String
 }

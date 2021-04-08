@@ -1,29 +1,91 @@
 <div class="container ContTab">
     <ul class="nav nav-pills TAB">
-        <span><li class="Button active" id="FIRST" (click)="RitmoCardiaco(0)" style="border-bottom-left-radius: 25px;border-top-left-radius: 25px;"><a data-toggle="pill">Ritmo cardíaco</a></li></span>
-        <span><li class="Button" (click)="TemperaturaCorporal(1)" ><a data-toggle="pill">Temperatura corporal</a></li></span>
-        <span><li class="Button" id="LAST" (click)="ExigenoEnSangre(2)" style="border-bottom-right-radius: 25px;border-top-right-radius: 25px;"><a data-toggle="pill">Oxígeno en la sangre</a></li></span>
+        <span><li class="Button active" id="FIRST" (click)="RitmoCardiaco(0)" style="border-bottom-left-radius: 25px;border-top-left-radius: 25px;">Ritmo cardíaco</li></span>
+        <span><li class="Button" (click)="TemperaturaCorporal(1)" >Temperatura corporal</li></span>
+        <span><li class="Button" (click)="Velocidad(2)" >Velocidad</li></span>
+        <span><li class="Button" (click)="Distancia(3)" >Distancia</li></span>
+        <span><li class="Button" (click)="ExigenoEnSangre(4)" >Oxigeno En Sangre</li></span>
+        <span><li class="Button" id="LAST" (click)="TestsStatus(5)" style="border-bottom-right-radius: 25px;border-top-right-radius: 25px;">Tests Status</li></span>
     </ul>
 </div>
 <div class="container">
     <app-graficas #Grafica  [Datos]="datosY"
                             [Labels]="LabelsX"></app-graficas>
-    <div class="container">
-        <div class="RitmoCardiaco" style="visibility: visible;">
-            <h2 style="color: white;">Ritmo Cardiaco Promedio</h2>
-            <h1 style="color: white;">{{RitmoCardiacoPromedio}}</h1>
+</div>
+<div class="container" style="margin-top: 25px;">
+    <div class="DIV_DESCRIPCION" id="RitmoCardiaco" style="visibility: visible; position: absolute;">
+        <h2 style="color: white;">Ritmo Cardiaco Promedio</h2>
+        <h1 style="color: white;">{{RitmoCardiacoPromedio}}</h1>
+    </div>
+    <div class="DIV_DESCRIPCION" id="Oxigeno" style="visibility: hidden; position: absolute;">
+        <h2 style="color: white;">Oxigeno en Sangre Promedio</h2>
+        <h1 style="color: white;">{{OxigenoPromedio}}</h1>
+    </div>
+    <div class="DIV_DESCRIPCION" id="Temperatura" style="visibility: hidden; position: absolute;">
+        <h2 style="color: white;">Temperatura Promedio</h2>
+        <h1 style="color: white;">{{TemperaturaValue.Promedio}}</h1>
+        <h2 style="color: white;">Temperatura Maxima</h2>
+        <h1 style="color: white;">{{TemperaturaValue.Maxima}}</h1>
+        <h2 style="color: white;">Temperatura Minima</h2>
+        <h1 style="color: white;">{{TemperaturaValue.Minima}}</h1>
+    </div>
+    <div class="DIV_DESCRIPCION" id="Velocidad" style="visibility: hidden; position: absolute;">
+        <div class="btn-group" style="width: 100px;">
+            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Repeticion
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item"  (click)="SelectRep('All')">ALL</a>
+                <a class="dropdown-item" *ngFor="let rep of Repeticion_Fecha" (click)="SelectRep(rep)">{{rep}}</a>
+            </div>
         </div>
-        <div class="Oxigeno" style="visibility: hidden;">
-            <h2 style="color: white;">Oxigeno en Sangre Promedio</h2>
-            <h1 style="color: white;">{{OxigenoPromedio}}</h1>
+        <h2 style="color: white;margin-top: 25px;">Velocidad Promedio</h2>
+        <h1 style="color: white;">{{VelocidadValue.Promedio}}</h1>
+        <h2 style="color: white;">Velocidad Maxima</h2>
+        <h1 style="color: white;">{{VelocidadValue.Maxima}}</h1>
+        <h2 style="color: white;">Velocidad Minima</h2>
+        <h1 style="color: white;">{{VelocidadValue.Minima}}</h1>
+    </div>
+    <div class="DIV_DESCRIPCION" id="Distancia" style="visibility: hidden; position: absolute;">
+        <div class="btn-group" style="width: 100px;">
+            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Repeticion
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="SelectRep('All')">ALL</a>
+                <a class="dropdown-item" *ngFor="let rep of Repeticion_Fecha" (click)="SelectRep(rep)">{{rep}}</a>
+            </div>
         </div>
-        <div class="Temperatura" style="visibility: hidden;">
-            <h2 style="color: white;">Temperatura Promedio</h2>
-            <h1 style="color: white;">{{TemperaturaValue.Promedio}}</h1>
-            <h2 style="color: white;">Temperatura Maxima</h2>
-            <h1 style="color: white;">{{TemperaturaValue.Maxima}}</h1>
-            <h2 style="color: white;">Temperatura Minima</h2>
-            <h1 style="color: white;">{{TemperaturaValue.Minima}}</h1>
+    </div>
+    <div class="DIV_DESCRIPCION" id="Test_Status" style="visibility: hidden; position: absolute;">
+        <div class="btn-group" style="width: 100px;margin-top: 25px;" >
+            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filtrar
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="SelectStatus('All')">ALL</a>
+                <a class="dropdown-item" (click)="SelectStatus('NO APROBADO')">NO APROBADO</a>
+                <a class="dropdown-item" (click)="SelectStatus('RENDICION')">RENDICIÓN</a>
+                <a class="dropdown-item" (click)="SelectStatus('APROBADO')">APROBADO</a>
+            </div>
         </div>
+        <h2 style="color: white;margin-top: 25px;" id="Status_count"></h2>
+        <h1 style="color: white;">{{Status_count}}</h1>
+        <table class="tg" style="margin-top: 50px;">
+            <thead>
+              <tr>
+                <th class="tg-ywlh">Fecha</th>
+                <th class="tg-ywlh">Periodo</th>
+                <th class="tg-ywlh">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let Registro of StatusTestUser">
+                <td class="tg-w747">{{Replace(Registro.Fecha)}}</td>
+                <td class="tg-w747">{{Registro.Periodo}}</td>
+                <td class="tg-w747">{{Registro.Estado}}</td>
+              </tr>
+            </tbody>
+            </table>
     </div>
 </div>

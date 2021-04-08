@@ -16,6 +16,8 @@ import { CoachTableComponent } from './components/coach-table/coach-table.compon
 import { Reportes2Component } from './components/reportes2/reportes2.component';
 import { GraficaBarrasComponent } from './components/grafica-barras/grafica-barras.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TablaComponent } from './components/tabla/tabla.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,16 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     CoachTableComponent,
     Reportes2Component,
     GraficaBarrasComponent,
-    NavBarComponent
+    NavBarComponent,
+    TablaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ServiciosService

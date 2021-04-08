@@ -1,0 +1,23 @@
+<div class="container" >
+    <div>
+        
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Fecha</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let fecha of Fechas;index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{fecha}}</td>
+                        <td><a class="btn btn-success"><span class="glyphicon glyphicon-eye-open" (click)="VerHistoria(fecha)"></span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
