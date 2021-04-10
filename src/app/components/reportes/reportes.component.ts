@@ -347,7 +347,7 @@ export class ReportesComponent implements OnInit {
   }
 
   public SelectRep(numero:any){
-    this.Repeticion = numero
+    this.Repeticion = numero == 1 ? 0 : numero;
     console.log(this.Repeticion)
     let fecha=this.router.snapshot.paramMap.get("Fecha")
     if(fecha != null && fecha != undefined){
