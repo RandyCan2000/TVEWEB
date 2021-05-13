@@ -54,20 +54,30 @@ export class HistorialComponent implements OnInit {
     let VEL:any[]=[]
     let DIS:any[]=[]
     for (let i = 0; i < this.Fechas.length; i++) {
+      this.RitmoCardiacoPromedio=0
+      this.OxigenoPromedio=0
+      this.TemperaturaPromedio=0
+      this.VelocidadPromedio=0
+      this.DistanciaPromedio=0
       let fecha=this.Fechas[i].replace(/\//gi,"_")
       this.Servicio.GetListadoMediciones(this.UsrLog.Username,fecha).subscribe(
         result=>{
-          
-          
-          this.RitmoCardiacoPromedio=0
-          this.OxigenoPromedio=0
-          this.TemperaturaPromedio=0
           for (let j = 0; j < result.length; j++) {
             this.RitmoCardiacoPromedio = Number(this.RitmoCardiacoPromedio) + Number(result[j].RitmoCardiaco)
             this.OxigenoPromedio = Number(this.OxigenoPromedio) + Number(result[j].PulsoOxigeno)
             this.TemperaturaPromedio = Number(this.TemperaturaPromedio) + Number(result[j].Temperatura)
-            this.VelocidadPromedio = Number(this.VelocidadPromedio) + Number(result[j].Velocidad)
-            this.DistanciaPromedio = Number(this.DistanciaPromedio) + Number(result[j].Distancia)
+            if(result[j].Velocidad == null || result[j].Velocidad==undefined){
+              this.VelocidadPromedio = Number(this.VelocidadPromedio) + 0
+            }else{
+              this.VelocidadPromedio = Number(this.VelocidadPromedio) + (Number(result[j].Velocidad)/100)
+            }
+
+            if(result[j].Distancia == null || result[j].Distancia==undefined){
+              this.DistanciaPromedio = Number(this.DistanciaPromedio) + 0
+            }else{
+              this.DistanciaPromedio = Number(this.DistanciaPromedio) + (Number(result[j].Distancia)/100)
+            }
+            
           }
 
           this.RitmoCardiacoPromedio=Number(this.RitmoCardiacoPromedio)/result.length
@@ -82,11 +92,15 @@ export class HistorialComponent implements OnInit {
           TMP.push(this.TemperaturaPromedio)
           VEL.push(this.VelocidadPromedio)
           DIS.push(this.DistanciaPromedio)
+          
+
+          if(this.Fechas.length-1==i){
           console.log(RTC);
           console.log(OX);
           console.log(TMP);
-          
-          if(this.Fechas.length-1==i){
+          console.log(VEL);
+          console.log(DIS);
+
             this.Graph.barChartData[0].data=RTC
             this.Graph.barChartData[1].data=OX
             this.Graph.barChartData[2].data=TMP

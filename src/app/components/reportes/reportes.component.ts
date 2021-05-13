@@ -79,7 +79,7 @@ export class ReportesComponent implements OnInit {
             let periodo_maximo = result[result.length - 1].Periodo
             this.Repeticion_Fecha = new Array()
             if(periodo_maximo != null && periodo_maximo != undefined){
-              for (let index = 1; index <= Number(periodo_maximo); index++) {
+              for (let index = 0; index <= Number(periodo_maximo); index++) {
                 this.Repeticion_Fecha.push(index);
               }
             }
@@ -140,7 +140,7 @@ export class ReportesComponent implements OnInit {
               }
               if(this.BotonPresionado=="Velocidad"){
                 for (let i = 0; i < result.length; i++) {
-                  this.datosY[i]=result[i].Velocidad
+                  this.datosY[i]=Number(result[i].Velocidad)/100
                   this.LabelsX[i]=i.toString()
                 }
                 this.VelocidadValue.Promedio=Number(this.Promedio(this.datosY))
@@ -149,7 +149,7 @@ export class ReportesComponent implements OnInit {
               }
               if(this.BotonPresionado=="Distancia"){
                 for (let i = 0; i < result.length; i++) {
-                  this.datosY[i]=result[i].Distancia
+                  this.datosY[i]=Number(result[i].Distancia)/100
                   this.LabelsX[i]=i.toString()
                 }
               }
@@ -158,7 +158,7 @@ export class ReportesComponent implements OnInit {
                 let periodo_maximo = result[result.length - 1].Periodo
                 this.Repeticion_Fecha = new Array()
                 if(periodo_maximo != null && periodo_maximo != undefined){
-                  for (let index = 1; index <= Number(periodo_maximo); index++) {
+                  for (let index = 0; index <= Number(periodo_maximo); index++) {
                     this.Repeticion_Fecha.push(index);
                   }
                 } 
@@ -275,7 +275,7 @@ export class ReportesComponent implements OnInit {
     this.Seleccionar(btn)
     //for
     for (let i = 0; i < this.ListadoMediciones.length; i++) {
-      this.datosY[i]=this.ListadoMediciones[i].Velocidad
+      this.datosY[i]=Number(this.ListadoMediciones[i].Velocidad)/100
       this.LabelsX[i]=i.toString()
     }
     this.Show_hide_div("Velocidad")
@@ -291,7 +291,7 @@ export class ReportesComponent implements OnInit {
     this.Seleccionar(btn)
     //for
     for (let i = 0; i < this.ListadoMediciones.length; i++) {
-      this.datosY[i]=this.ListadoMediciones[i].Distancia
+      this.datosY[i]=Number(this.ListadoMediciones[i].Distancia)/100
       this.LabelsX[i]=i.toString()
     }
     this.Show_hide_div("Distancia")
@@ -347,7 +347,7 @@ export class ReportesComponent implements OnInit {
   }
 
   public SelectRep(numero:any){
-    this.Repeticion = numero == 1 ? 0 : numero;
+    this.Repeticion = numero;
     console.log(this.Repeticion)
     let fecha=this.router.snapshot.paramMap.get("Fecha")
     if(fecha != null && fecha != undefined){
@@ -363,7 +363,7 @@ export class ReportesComponent implements OnInit {
             this.datosY=new Array()
             this.LabelsX=new Array()
             for (let i = 0; i < result.length; i++) {
-              this.datosY.push(result[i].Velocidad)
+              this.datosY.push(Number(result[i].Velocidad)/100)
               this.LabelsX.push(i.toString())
             }
             this.Graph.lineChartData[0].data=this.datosY
@@ -385,7 +385,7 @@ export class ReportesComponent implements OnInit {
             this.datosY=new Array()
             this.LabelsX=new Array()
             for (let i = 0; i < result.length; i++) {
-              this.datosY.push(result[i].Distancia)
+              this.datosY.push(Number(result[i].Distancia)/100)
               this.LabelsX.push(i.toString())
             }
             this.Graph.lineChartData[0].data=this.datosY
