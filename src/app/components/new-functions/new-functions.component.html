@@ -1,0 +1,66 @@
+<div class="card" id="card">
+    <div class="card-body">
+        <div class="row text-center">
+            <div class="col-lg-4 col-10">
+                <p class="h1" style="color: white">
+                    Estado Atleta
+                </p>
+                <p class="h3" style="color: white">
+                    {{EstadoAtleta}}
+                </p>
+            </div>
+			<div class="col-lg-4 col-10">
+                <p class="h1" style="color: white">
+                    Temperatura Del Ambiente
+                </p>
+                <p class="h3" style="color: white">
+                    {{TemperaturaAmbiente}}°
+                </p>
+            </div>
+            <div class="col-lg-4 col-10" >
+                <p class="h1" style="color: white">
+                    Temperatura Atleta
+                </p>
+                <p class="h3" style="color: white">
+                    {{TemperaturaAtleta}}°
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card2">
+    <div class="card-body">
+        <div class="row text-center">
+            <div class="col-lg-4 col-10">
+                <p class="h1" style="color: white">
+                    Ingrese Una Distancia A Recorrer En Metros
+                </p>
+                <input type="number" class="fadeIn second" placeholder="Distancia" autocomplete="off" [(ngModel)]="DistanciaNumber">
+				<input type="button" class="fadeIn fourth" value="Comenzar" (click)="Comenzar()">
+            </div>
+			<div class="col-lg-4 col-10">
+                <p class="h1" style="color: white">
+                    Meta A Cumplir
+                </p>
+                <p class="h3" style="color: white">
+                    {{Distancia}} m
+                </p>
+            </div>
+            <div class="col-lg-4 col-10" >
+                <p class="h1" style="color: white">
+                    Estado  Meta
+                </p>
+                <p class="h3" style="color: white">
+                    {{EstadoMeta}}
+                </p>
+				 <p class="h1" style="color: white">
+                    Progreso
+                </p>
+                <p class="h3" style="color: white">
+                    {{Progreso}} m
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

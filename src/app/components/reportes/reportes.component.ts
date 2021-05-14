@@ -204,7 +204,8 @@ export class ReportesComponent implements OnInit {
         }
         this.Graph.lineChartData[0].data=this.datosY
         this.Graph.lineChartLabels=this.LabelsX
-
+		
+		
         if(this.navigate.url!="/Graficas/Live"){
           clearInterval(Interval)
           console.log("End Interval");

@@ -18,6 +18,7 @@ import { GraficaBarrasComponent } from './components/grafica-barras/grafica-barr
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TablaComponent } from './components/tabla/tabla.component';
+import { NewFunctionsComponent } from './components/new-functions/new-functions.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TablaComponent } from './components/tabla/tabla.component';
     Reportes2Component,
     GraficaBarrasComponent,
     NavBarComponent,
-    TablaComponent
+    TablaComponent,
+    NewFunctionsComponent
   ],
   imports: [
     BrowserModule,

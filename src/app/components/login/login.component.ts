@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(sessionStorage.getItem("UsrLog")!=null){
+	  
+	if(sessionStorage.getItem("UsrLog")!=null){
       this.router.navigate(['/', 'Graficas']);
     }
   }
@@ -37,9 +38,9 @@ export class LoginComponent implements OnInit {
       result => {
         if(result.length==0){
           alert("El Usuario no existe")
-        }else if(result.length==1){
+        }else if(result.length==1){					
           sessionStorage.setItem("UsrLog",JSON.stringify(result[0]))
-          this.router.navigate(['Graficas'])
+		  this.router.navigateByUrl('NewFunc', {skipLocationChange: true}).then(() => this.router.navigate(['NewFunc']));
         }else{
           alert("Error al iniciar sesion")
         }

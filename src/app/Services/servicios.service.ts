@@ -11,10 +11,29 @@ import { TestUser } from '../Model/TestUsers';
 })
 export class ServiciosService {
 
-  public Ruta:string="https://fast-thicket-73591.herokuapp.com"
+   //public Ruta:string="http://localhost:4000";
+   public PosicionGeografica:string = "https://freegeoip.app/json/";   
+   public Ruta:string="https://fast-thicket-73591.herokuapp.com"
 
   constructor(private http:HttpClient) { }
 
+	public GetPosGeografica() 
+	{		
+		return this.http.get(this.PosicionGeografica).toPromise();		
+	}
+	
+	public GetTemperaturaGeografica(Longitud: string, Latitud: string) 
+	{
+		
+		return this.http.get(`http://www.7timer.info/bin/civillight.php?lon=${Longitud}&lat=${Latitud}%7D&ac=0&unit=metric&output=json`).toPromise();
+		
+	}
+	
+	public GetTemperaturaAtleta(UsrName:string, Fecha:String) {
+		
+		return this.http.get(this.Ruta+`/get/Mediciones/${UsrName}/${Fecha}`).toPromise();
+	
+	}
 
   public PostUser(NewUser:User):Observable<any>{
     return this.http.post<any>(this.Ruta+"/create_user",NewUser)

@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReportesComponent } from './components/reportes/reportes.component';
 import { Reportes2Component } from './components/reportes2/reportes2.component';
 import { UserInfComponent } from './components/user-inf/user-inf.component';
+import { NewFunctionsComponent } from './components/new-functions/new-functions.component'; 
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
   },{
     path:"Coach",
     component:CoachTableComponent
+  },
+  {
+	path:"NewFunc",
+	component: NewFunctionsComponent	  
   },
   {
     path: '**',
