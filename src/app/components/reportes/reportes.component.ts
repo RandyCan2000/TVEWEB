@@ -115,6 +115,7 @@ export class ReportesComponent implements OnInit {
           this.servicios.GetListadoMediciones(this.UsrNameView.toString(),FechaLive).subscribe(
             result=>{
               this.ListadoMediciones=result
+              console.log(result);
               if(this.BotonPresionado=="Temperatura"){
                 for (let i = 0; i < result.length; i++) {
                   this.datosY[i]=result[i].Temperatura

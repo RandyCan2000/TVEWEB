@@ -71,6 +71,10 @@ export class ServiciosService {
     return this.http.get<Dates_>(this.Ruta+`/Ordenar/Fecha/Inicio/Sesion`)
   }
 
+  public GetUltimoInicioSesionPromise():Promise<Dates_>{
+    return this.http.get<Dates_>(this.Ruta+`/Ordenar/Fecha/Inicio/Sesion`).toPromise()
+  }
+
   public GetTestStatusUser(User:String):Observable<TestUser[]>{
     return this.http.get<TestUser[]>(this.Ruta+`/Get/All/Registros/${User}`)
   }

@@ -8,6 +8,9 @@
                 <p class="h3" style="color: white">
                     {{EstadoAtleta}}
                 </p>
+                <p class="h3" style="color: white">
+                    {{EstadoAmbiente}}
+                </p>
             </div>
 			<div class="col-lg-4 col-10">
                 <p class="h1" style="color: white">
@@ -37,7 +40,8 @@
                     Ingrese Una Distancia A Recorrer En Metros
                 </p>
                 <input type="number" class="fadeIn second" placeholder="Distancia" autocomplete="off" [(ngModel)]="DistanciaNumber">
-				<input type="button" class="fadeIn fourth" value="Comenzar" (click)="Comenzar()">
+				<input type="button" class="fadeIn fourth" id="comenzar" value="Comenzar" (click)="Comenzar()" style="visibility: visible;">
+                <input type="button" class="fadeIn fourth" id="terminar" value="terminar" (click)="Terminar()" style="visibility: hidden;">
             </div>
 			<div class="col-lg-4 col-10">
                 <p class="h1" style="color: white">
